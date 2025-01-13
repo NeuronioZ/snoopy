@@ -1,0 +1,21 @@
+{
+    "name": "discord-bot",
+    "version": "1.0.0",
+    "description": "Bot Discord",
+    "main": "bot.js",
+    "scripts": {
+        "start": "node bot.js"
+    },
+    "dependencies": {
+        "@discordjs/builders": "^1.10.0",
+        "@discordjs/rest": "^1.0.0",
+        "@discordjs/voice": "^0.18.0",
+        "axios": "^1.7.9",
+        "canvas": "^3.0.0",
+        "discord-api-types": "^0.35.0",
+        "discord.js": "^14.17.2",
+        "dotenv": "^16.4.7",
+        "node-fetch": "^2.7.0",
+        "punycode": "^2.3.1"
+    }
+}
