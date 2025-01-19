@@ -147,51 +147,6 @@ client.once('ready', () => {
   }, 60 * 60 * 1000); // 1 hora
 });
 
-// Função para enviar mensagens aleatórias
-const sendRandomMessages = () => {
-  if (Object.keys(userMessages).length === 0) return;
-
-  const messageKeys = Object.keys(userMessages);
-  const randomMessages = [];
-  const numMessages = Math.min(5, messageKeys.length);
-
-  for (let i = 0; i < numMessages; i++) {
-    const randomIndex = Math.floor(Math.random() * messageKeys.length);
-    const randomUserId = messageKeys[randomIndex];
-
-    const randomMessage = userMessages[randomUserId]?.[Math.floor(Math.random() * userMessages[randomUserId].length)];
-
-    if (randomMessage) {
-      randomMessages.push(randomMessage.content);
-    }
-  }
-
-  const channel = client.channels.cache.get('1286783720069791754');
-  if (channel) {
-    channel.send(randomMessages.join(' '));
-  }
-};
-
-// Função para limpar mensagens antigas
-const cleanOldMessages = () => {
-  const now = Date.now();
-  const threshold = 7 * 24 * 60 * 60 * 1000; // 7 dias
-
-  for (const userId in userMessages) {
-    if (!Array.isArray(userMessages[userId])) {
-      userMessages[userId] = [];
-      continue;
-    }
-
-    userMessages[userId] = userMessages[userId].filter((msg) => now - new Date(msg.timestamp).getTime() < threshold);
-
-    if (userMessages[userId].length === 0) delete userMessages[userId];
-  }
-
-  saveMessagesData();
-};
-
-// Evento para capturar novas mensagens
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
