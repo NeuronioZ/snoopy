@@ -138,15 +138,6 @@ client.once('ready', () => {
   console.log(`Bot logado como ${client.user.tag}`);
   loadData();
 
-  setInterval(() => {
-    sendRandomMessages();
-  }, 15 * 60 * 1000); // 15 minutos
-
-  setInterval(() => {
-    cleanOldMessages();
-  }, 60 * 60 * 1000); // 1 hora
-});
-
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
