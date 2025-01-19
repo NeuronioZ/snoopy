@@ -137,6 +137,7 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
 client.once('ready', () => {
   console.log(`Bot logado como ${client.user.tag}`);
   loadData();
+});
 
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
