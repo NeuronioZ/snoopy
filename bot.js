@@ -7,8 +7,8 @@ const { Routes } = require('discord-api-types/v10');
 require('dotenv').config(); // Carregar variáveis de ambiente do arquivo .env
 
 // Constantes de autenticação e IDs
-const TOKEN = process.env.TOKEN || 'MTMxMjYyMDg3Mzc0Mzg2Mzk0OQ.GZ4Ppb.6fUWGY5PqYne-GHGDqzHZMD-2seOqTFhYHgwHk';
-const CLIENT_ID = process.env.CLIENT_ID || '1312620873743863949';
+const TOKEN = process.env.TOKEN || 'TOKEN';
+const CLIENT_ID = process.env.CLIENT_ID || 'CLIENT_ID';
 
 if (!TOKEN || !CLIENT_ID) {
   console.error('Erro: TOKEN ou CLIENT_ID não definidos.');
